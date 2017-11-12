@@ -79,11 +79,6 @@ function validateForm(recordStorage){
     	//update session storage object and index
     	window.sessionStorage.setItem("Records",JSON.stringify(recordStorage));
     	window.sessionStorage.setItem("Index",nextIndex);
-    	var display="";
-    	for (var key in recordStorage){
-    		display+=JSON.stringify(recordStorage[key]);
-    	}
-    	
 
     	//draw new table row
 		var table = document.getElementById("recordsTable");
