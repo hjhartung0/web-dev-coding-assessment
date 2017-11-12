@@ -6,11 +6,9 @@ window.onload = function(){
 	if (window.sessionStorage.getItem("Records") == null){
 		var recordStorage = {};
 		window.sessionStorage.setItem("Records", JSON.stringify(recordStorage));
-		console.log("set storage");
 
 		//initiate index
 		window.sessionStorage.setItem("Index",1);
-		console.log(window.sessionStorage.getItem("Index"));
 	}
 	//else get json object to use in validateForm
 	else{
@@ -25,7 +23,6 @@ window.onload = function(){
 	var form = document.getElementById("personalInfo");
 	form.addEventListener("submit", function(event){
     event.preventDefault();
-    console.log(typeof recordStorage);
     validateForm(recordStorage);
     //clear fields for next entry
     form.reset();
@@ -33,8 +30,6 @@ window.onload = function(){
 }
 
 function validateForm(recordStorage){
-	//var recordStorage =[];
-	console.log("in validateForm");
 	//store formobjects and regex for valdiation
 	var name = document.forms["personalInfo"]["name"].value;
 	var color = document.forms["personalInfo"]["color"].value;
@@ -79,19 +74,15 @@ function validateForm(recordStorage){
     	};
     	//get index and increment
     	var nextIndex = parseInt(window.sessionStorage.getItem("Index"),10);
-    	console.log(nextIndex);
     	nextIndex+=1;
     	recordStorage[nextIndex.toString()]=recordObj;
-    	console.log(recordStorage[nextIndex.toString()]);
     	//update session storage object and index
     	window.sessionStorage.setItem("Records",JSON.stringify(recordStorage));
     	window.sessionStorage.setItem("Index",nextIndex);
     	var display="";
     	for (var key in recordStorage){
     		display+=JSON.stringify(recordStorage[key]);
-    		console.log(key);
     	}
-    	console.log(display);
     	
 
     	//draw new table row
