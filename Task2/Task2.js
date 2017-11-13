@@ -104,7 +104,7 @@ function validateForm(recordStorage){
 
 
 
-//sort table function form W3S
+//sort table function from W3S
 function sortTable(n) {
   var table, rows, switching, i, x, y, shouldSwitch, dir, switchcount = 0;
   table = document.getElementById("recordsTable");
